@@ -1,19 +1,26 @@
 import java.util.Scanner;
 
-/* aTM-Machine by Fabi */
+/* Bankautomat by Fabi */
 
 public class Main {
     public static void main(String[] args) {
-        int input;
 
+        // Registrierung
+        int input;
+        String userEmail;
+        String userPassword;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bitte registriere dich! ");
 
-        System.out.println("email: ");
-        String userEmail = scanner.nextLine();
-        System.out.println("password: ");
-        String userPassword = scanner.nextLine();
+        do {
+        System.out.println("email (Keine Whitespaces und muss '@' haben): ");
+        userEmail = scanner.nextLine();
+        } while (userEmail.isEmpty() || !userEmail.contains("@"));
 
+        System.out.println("password (: ");
+        userPassword = scanner.nextLine();
+
+        // Anmeldung
         CheckLogin checkLogin = new CheckLogin(userEmail, userPassword);
         // Konto konto = new Konto(email, password);
 
@@ -42,8 +49,7 @@ public class Main {
         }
 
         System.out.println("Du bist nun angemeldet!");
-
-
+        
         Konto konto = new Konto();
         int bar = 0;
         do {
