@@ -5,6 +5,7 @@ import static java.lang.Math.random;
 /*
     Author: Fabi
  */
+
 public class Main {
     public static void main(String[] args) {
         int einsatz;
