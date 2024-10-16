@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Konto {
-    
     private final String[] displayText = {
             "Nicht genug geld auf dem Konto! du hast %d EURO und hast versucht %d EURO abzubuchen!", // 0
             "Drück 1 zum auszahlen, 2 zum einzahlen, 3 um Kontostand anzuzeigen, 4 zum abbrechen", // 1
@@ -43,10 +42,37 @@ public class Konto {
         return input;
     }
 
-    public void inputGroesserAlsKontostand(int barInput, int kontostand) {
+    void inputGroesserAlsKontostand(int barInput, int kontostand) {
         if (barInput > kontostand) {
             System.out.printf(displayText[0], kontostand, barInput);
             System.exit(1);
+        }
+    }
+
+    void auszahlenAutomat() {
+        if (kontostand() != 0) {
+            System.out.println(displayText[2]);
+            int bargeldInput = scanner.nextInt();
+            switch (bargeldInput) {
+                case 1 -> {bargeld = 10;}
+                case 2 -> {bargeld = 20;}
+                case 3 -> {bargeld = 50;}
+                case 4 -> {
+                    System.out.println(displayText[3]);
+                    bargeldInput = scanner.nextInt();
+                    inputGroesserAlsKontostand(bargeldInput, kontostand());
+                    bargeld = bargeldInput;
+                }
+                default -> {
+                    System.out.println(displayText[4]);
+                    scanner.close();
+                    System.exit(1);
+                }
+
+            }
+
+            int a = auszahlen(bargeld);
+            System.out.println(display(displayText[5].formatted(a)));
         }
     }
 
@@ -54,54 +80,18 @@ public class Konto {
         do {
             System.out.println(displayText[1]);
             input = scanner.nextInt();
-
             switch (input) {
-                case 1 -> {
-                    if (kontostand() != 0) {
-                        System.out.println(displayText[2]);
-                        int bargeldInput = scanner.nextInt();
-                        switch (bargeldInput) {
-                            case 1 -> {bargeld = 10;}
-                            case 2 -> {bargeld = 20;}
-                            case 3 -> {bargeld = 50;}
-                            case 4 -> {
-                                System.out.println(displayText[3]);
-                                bargeldInput = scanner.nextInt();
-                                inputGroesserAlsKontostand(bargeldInput, kontostand());
-                                bargeld = bargeldInput;
-                            }
-                            default -> {
-                                System.out.println(displayText[4]);
-                                scanner.close();
-                                System.exit(1);
-                            }
-                        }
-                        int a = auszahlen(bargeld);
-                        System.out.println(display(displayText[5].formatted(a)));
-                        break;
-                    }
-
-                }
+                case 1 -> {auszahlenAutomat();}
                 case 2 -> {
                     System.out.println(displayText[6]);
                     int bargeld = scanner.nextInt();
                     einzahlen(bargeld);
                     System.out.println(display(displayText[7].formatted(bargeld)));
-                    break;
                 }
-                case 3 -> {
-                    int k = kontostand();
-                    System.out.println(display(displayText[8].formatted(k)));
-                    break;
-                }
-                case 4 -> {
-                    System.exit(1);
-                }
-                default -> {
-                    System.out.println(displayText[9]);
-                }
+                case 3 -> {System.out.println(display(displayText[8].formatted(kontostand())));}
+                case 4 -> {System.exit(1);}
+                default -> {System.out.println(displayText[9]);}
             }
-
-        } while (input != 4);
+        } while (input != 4) ;
     }
 }
