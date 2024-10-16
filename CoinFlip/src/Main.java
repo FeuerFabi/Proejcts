@@ -3,7 +3,7 @@ import java.util.Scanner;
 import static java.lang.Math.random;
 
 /*
-    Author: Fabi
+    Author: Fabi --> TODO: Optimieren und Coin Klasse erstellen
  */
 
 public class Main {
