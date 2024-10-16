@@ -61,21 +61,21 @@ public class Main {
                                     System.out.printf("Nicht genug geld auf dem Konto! du hast %d EURO und hast versucht %d EURO abzubuchen!", konto.kontostand(), bargeldInput);
                                     System.exit(1);
                                 }
-                                bar += 10;
+                                bar = 10;
                             }
                             case 2 -> {
                                 if (bargeldInput > konto.kontostand()) {
                                     System.out.printf("Nicht genug geld auf dem Konto! du hast %d EURO und hast versucht %d EURO abzubuchen!", konto.kontostand(), bargeldInput);
                                     System.exit(1);
                                 }
-                                bar += 20;
+                                bar = 20;
                             }
                             case 3 -> {
                                 if (bargeldInput > konto.kontostand()) {
                                     System.out.printf("Nicht genug geld auf dem Konto! du hast %d EURO und hast versucht %d EURO abzubuchen!", konto.kontostand(), bargeldInput);
                                     System.exit(1);
                                 }
-                                bar += 50;
+                                bar = 50;
                             }
                             case 4 -> {
                                 System.out.println("Bitte gewünschten Betrag eingeben: ");
@@ -84,10 +84,10 @@ public class Main {
                                     System.out.printf("Nicht genug geld auf dem Konto! du hast %d EURO und hast versucht %d EURO abzubuchen!", konto.kontostand(), bargeldInput);
                                     System.exit(1);
                                 }
-                                bar += bargeldInput;
+                                bar = bargeldInput;
                             }
                             default -> {
-                                System.out.println("Bitte eine Zahl eingeben!");
+                                System.out.println("Bitte eine Zahl von 1 - 4 eingeben!");
                                 System.exit(1);
                             }
                         }
