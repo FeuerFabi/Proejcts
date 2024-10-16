@@ -30,22 +30,30 @@ public class Main {
         }
 
         Random random = new Random();
+        
         do{
+            
             int würfel1 = random.nextInt(6) + 1;
             int würfel2 = random.nextInt(6) + 1;
             int dice_res = würfel1 + würfel2;
 
             System.out.println("Nun entscheide dich für eine magische Summe! (min 2 max 12)");
             String summe = input.nextLine();
+            
             int user_summe = Integer.parseInt(summe);
+            
             if (user_summe != dice_res) {
+                
                 System.out.printf("Leider ist deine summe %d falsch, der Würfel gewinnt mit %d! ", user_summe, dice_res);
                 System.out.println("Viel erfolg beim nächsten mal!");
+                
                 einsatz = 0;
                 cont = false;
             } else {
+                
                 System.out.printf("Glückwunsch! Du hast mit %d genau das schwarze getroffen! ", user_summe);
                 System.out.printf("Dein GEWINN beträgt %d! Willst du weiter machen oder auszahlen -> w (weiter) a (auszahlen)", einsatz  *= 6);
+                
                 String userCont = input.nextLine();
                 if(userCont.equals("w")) {
                     cont = true;
