@@ -61,25 +61,3 @@ public class Login extends Konto
         System.out.println("Du bist nun angemeldet!");
     }
 }
-
-/*
- System.out.println("Bitte anmelden!");
-
-        while (checkMail == false) {
-            System.out.println("Falsche Email!");
-            System.out.println("email: ");
-            String ccEmail = scanner.nextLine();
-            checkMail = checkLogin.checkEmail(ccEmail);
-        }
-
-        System.out.println("password: ");
-        String cPassword = scanner.nextLine();
-        boolean checkPassword = checkLogin.checkPass(cPassword);
-
-        while (checkPassword == false) {
-            System.out.println("Falsches Passwort!");
-            System.out.println("password: ");
-            String ccPassword = scanner.nextLine();
-            checkPassword = checkLogin.checkPass(ccPassword);
-        }
- */
