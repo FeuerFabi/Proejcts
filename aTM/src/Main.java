@@ -17,7 +17,7 @@ public class Main {
         userEmail = scanner.nextLine();
         } while (userEmail.isEmpty() || !userEmail.contains("@"));
 
-        System.out.println("password (: ");
+        System.out.println("password: ");
         userPassword = scanner.nextLine();
 
         // Anmeldung
