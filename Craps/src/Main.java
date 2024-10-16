@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 /*
-    Author: Fabi
+    Author: Fabi -->  TODO DiceGame Klasse und oprimieren 
  */
 
 public class Main {
