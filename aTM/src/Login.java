@@ -35,11 +35,11 @@ public class Login extends Konto
         password = scanner.nextLine();
     }
 
-    public boolean checkEmail(String email){
+    private boolean checkEmail(String email){
          return this.email.equals(email);
     }
 
-    public boolean checkPass(String password){
+    private boolean checkPass(String password){
         return this.password.equals(password);
     }
 
