@@ -29,27 +29,27 @@ public class Konto {
         return kontostand += bargeld;
     }
 
-    public int auszahlen(int bargeld) {
+    private int auszahlen(int bargeld) {
         kontostand -= bargeld;
         return bargeld;
     }
 
-    public int kontostand() {
+    private int kontostand() {
         return kontostand;
     }
 
-    public String display(String input) {
+    private String display(String input) {
         return input;
     }
 
-    void inputGroesserAlsKontostand(int barInput, int kontostand) {
+    private void inputGroesserAlsKontostand(int barInput, int kontostand) {
         if (barInput > kontostand) {
             System.out.printf(displayText[0], kontostand, barInput);
             System.exit(1);
         }
     }
 
-    void auszahlenAutomat() {
+    private void auszahlenAutomat() {
         if (kontostand() != 0) {
             System.out.println(displayText[2]);
             int bargeldInput = scanner.nextInt();
