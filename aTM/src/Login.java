@@ -37,4 +37,4 @@ public class Login extends Konto implements LoginInterface {
         CheckLogin checkLogin = new CheckLogin(this.displayText, this.email, this.password);
         checkLogin.checkLogin();
     }
-
+}
