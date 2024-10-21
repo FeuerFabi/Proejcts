@@ -10,3 +10,5 @@ public class Main {
         login.anmelden();
         Konto konto = new Konto();
         konto.automatenLoop();
+    }
+}
