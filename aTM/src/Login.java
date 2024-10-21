@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Login extends Konto
-{
+public class Login extends Konto implements LoginInterface {
+
     private final String[] displayText = {
             "email: ",  // 0
             "email (Keine Whitespaces und muss '@' haben): ", // 1
@@ -14,7 +13,7 @@ public class Login extends Konto
             "Du bist nun angemeldet!" // 7
     };
 
-    private String email, password, checkEmail, checkPassword;
+    private String email, password;
 
     Login() {
         super();
@@ -22,7 +21,7 @@ public class Login extends Konto
 
     Scanner scanner = new Scanner(System.in);
 
-    public void registrierung() {
+    @Override public void registrierung() {
         System.out.println(displayText[5]);
         do {
         System.out.println(displayText[1]);
@@ -32,38 +31,10 @@ public class Login extends Konto
         password = scanner.nextLine();
     }
 
-    private boolean checkEmail(String email){
-         return this.email.equals(email);
+
+
+    @Override public void anmelden() {
+        CheckLogin checkLogin = new CheckLogin(this.displayText, this.email, this.password);
+        checkLogin.checkLogin();
     }
 
-    private boolean checkPass(String password){
-        return this.password.equals(password);
-    }
-
-    public void anmelden() {
-        System.out.println(displayText[6]);
-        System.out.println(displayText[0]);
-        checkEmail = scanner.nextLine();
-        boolean check = checkEmail(checkEmail);
-
-        while (check == false) {
-            System.out.println(displayText[2]);
-            System.out.println(displayText[0]);
-            checkEmail = scanner.nextLine();
-            check = checkEmail(checkEmail);
-        }
-
-        System.out.println(displayText[3]);
-        checkPassword = scanner.nextLine();
-        boolean checkPass = checkPass(checkPassword);
-
-        while (checkPass == false) {
-            System.out.println(displayText[4]);
-            System.out.println(displayText[3]);
-            checkPassword = scanner.nextLine();
-            checkPass = checkPass(checkPassword);
-        }
-
-        System.out.println(displayText[7]);
-    }
-}
