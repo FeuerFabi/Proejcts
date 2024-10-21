@@ -17,8 +17,6 @@ public class Login extends Konto implements LoginInterface {
         this.password = register.password;
     }
 
-
-
     @Override public void anmelden() {
         CheckLogin checkLogin = new CheckLogin(LoginInterface.displayText, this.email, this.password);
         checkLogin.checkLogin();
