@@ -14,10 +14,7 @@ public class Login extends Konto
             "Du bist nun angemeldet!" // 7
     };
 
-    private String email;
-    private String password;
-    private String checkEmail;
-    private String checkPassword;
+    private String email, password, checkEmail, checkPassword;
 
     Login() {
         super();
